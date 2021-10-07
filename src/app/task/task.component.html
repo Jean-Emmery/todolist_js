@@ -1,0 +1,34 @@
+<div class="container-main">
+  <div *ngIf="user">
+    <h1>{{user.name}}</h1>
+    <div><span>ID : </span>{{user.id}}</div>
+    <div>
+      <label>Nom du chien :
+        <input [(ngModel)]="user.name" placeholder="user"/>
+      </label>
+      <br>
+      <div>
+        <h2>Tâches : </h2>
+
+        <div>
+          <form (submit)="user.task.addTodo($event)">
+            <div class="grix xs1">
+              <div class="form-field inline">
+                <input [(ngModel)]="user.task.newTodo" class="form-control rounded-1" name="newTodo">
+                <button class="btn shadow-1 rounded-1 blue" type="submit" [disabled]="user.task.newTodo===''">Ajouter</button>
+              </div>
+            </div>
+          </form>
+
+          <ul>
+            <li *ngFor="let todo of user.task.todos; let i=index">
+              <input type="checkbox" class="checkbox" [(ngModel)]='todo.completed'>
+              <input class="task-input" value="{{todo.newTodo}}" ([ngModel])="user.task.todos.newTodo" [ngClass]="{'checked': todo.completed}">
+              <button (click)=user.task.deleteTodo(i) class="btn shadow-1 rounded-1 blue">Retirer</button>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

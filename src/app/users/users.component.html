@@ -1,0 +1,19 @@
+<div class="large-container">
+  <div class="container-main">
+    <h2>Liste des users : </h2>
+
+    <div class="card shadow-1 hoverable-1 rounded-3 amaranth dark-4" *ngFor="let user of USERS"
+         [class.selected]="user === selectedUser"
+         (click)="onSelect(user)">
+      <div class="card-content">
+        <p>
+          {{user.name}}
+          <span>{{user.task.todos}}</span>
+        </p>
+      </div>
+    </div>
+  </div>
+  <div class="second-container">
+    <app-task [user]="selectedUser"></app-task>
+  </div>
+</div>

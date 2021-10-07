@@ -1,0 +1,26 @@
+.container-main {
+  height: max-content;
+}
+
+.card .card-content {
+  padding: 1rem;
+  flex-grow: 1;
+}
+
+.large-container{
+  display: flex;
+}
+
+.container-main {
+  width: 20%;
+  margin-right: 5%;
+  padding: 10px;
+}
+
+.second-container {
+  width: 21%;
+}
+
+.card {
+  width: 34%;
+}
